@@ -37,4 +37,10 @@ public class PersonRepository implements PanacheRepository<Person> {
     public Person getById(Long id) {
         return findById(id);
     }
+
+    @Transactional
+    public void update(Person person) {
+        update("firstname = ?1, lastname = ?2, email = ?3, phonenumber = ?4 where id = ?5", person.getFirstName(), person.getLastName(), person.geteMail(), person.getPhoneNumber(), person.getId());
+        //this.getEntityManager().merge(person);
+    }
 }

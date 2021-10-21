@@ -63,4 +63,11 @@ public class Person {
     public void setTimeStamp(Instant timeStamp) {
         this.timeStamp = timeStamp;
     }
+
+    public void setId(long id) {
+    }
+
+    public long getId() {
+        return this.id;
+    }
 }
