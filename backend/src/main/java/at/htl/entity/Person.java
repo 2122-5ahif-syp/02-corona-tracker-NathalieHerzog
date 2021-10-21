@@ -1,4 +1,4 @@
-package at.htl.entities;
+package at.htl.entity;
 
 import javax.persistence.*;
 import java.time.Instant;
