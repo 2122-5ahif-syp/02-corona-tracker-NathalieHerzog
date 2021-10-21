@@ -23,7 +23,7 @@
   <div id="loggedUser"></div>
 
   <script>
-      if( localStorage.getItem('firstName') != null) {
+      if(localStorage.getItem('firstName') != null) {
           document.getElementById('firstName').value = localStorage.getItem('firstName');
           document.getElementById('lastName').value = localStorage.getItem('lastName');
           document.getElementById('eMail').value = localStorage.getItem('eMail');
@@ -36,6 +36,12 @@
           localStorage.setItem('eMail', document.getElementById('eMail').value);
           localStorage.setItem('phoneNumber', document.getElementById('phoneNumber').value);
       }
+
+      document.getElementById('loggedUser').innerHTML =
+        localStorage.getItem("firstName") +
+        localStorage.getItem("lastName") +
+        localStorage.getItem("eMail") +
+        localStorage.getItem("phoneNumber");
   </script>
 </body>
 </html>
