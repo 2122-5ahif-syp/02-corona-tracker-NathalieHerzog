@@ -20,37 +20,6 @@ public class PersonService {
     public PersonService() {
     }
 
-    @Operation(
-            summary = "Gets one Person id",
-            description = "Gets the id of the Person that is searched for with the PathParam"
-    )
-    @GET
-    @Path("person/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response findPerson(@PathParam int id) {
-        return Response.ok(personRepository.getById((long) id))
-                .build();
-    }
-
-    @Operation(
-            summary = "Updates a person",
-            description = "For updating the attributes of a specific Person"
-    )
-    @PATCH
-    @Path("person/name/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateName(@PathParam int id, JsonObject eventJson) {
-        long now = System.currentTimeMillis();
-        Instant testTimeStamp = Instant.ofEpochSecond(now, 345000000);
-
-        Person person = new Person(eventJson.getString("newFirstName"), eventJson.getString("newLastName"), eventJson.getString("newEmail"), eventJson.getString("newPhoneNumber"), testTimeStamp);
-        person.setId((long) id);
-        personRepository.update(person);
-        return Response.ok().build();
-    }
-
     @POST
     @Path("/")
     public Response addUser(
