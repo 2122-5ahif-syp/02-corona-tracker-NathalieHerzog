@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Corona Tracker</title>
+</head>
+<body>
+  <h1>Login</h1>
+
+  <form action="api" method="post" onsubmit="onSubmit()">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <label for="lname">Email:</label>
+      <input type="text" id="email" name="email"><br><br>
+      <label for="email">Phone:</label>
+      <input type="text" id="phone" name="phone"><br><br>
+      <input type="submit" value="Submit">
+  </form>
+
+  <h1>Logged Users</h1>
+  <div id="loggedUser"></div>
+
+  <script>
+      if( localStorage.getItem('firstName') != null) {
+          document.getElementById('firstName').value = localStorage.getItem('firstName');
+          document.getElementById('lastName').value = localStorage.getItem('lastName');
+          document.getElementById('eMail').value = localStorage.getItem('eMail');
+          document.getElementById('phoneNumber').value = localStorage.getItem('phoneNumber');
+      }
+
+      function onSubmit() {
+          localStorage.setItem('firstName', document.getElementById('firstName').value);
+          localStorage.setItem('lastName', document.getElementById('lastName').value);
+          localStorage.setItem('eMail', document.getElementById('eMail').value);
+          localStorage.setItem('phoneNumber', document.getElementById('phoneNumber').value);
+      }
+  </script>
+</body>
+</html>

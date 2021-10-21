@@ -24,6 +24,10 @@ public class Person {
         this.timeStamp = timeStamp;
     }
 
+    public Person() {
+
+    }
+
     public String getFirstName() {
         return firstName;
     }

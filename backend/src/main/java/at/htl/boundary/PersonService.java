@@ -50,4 +50,18 @@ public class PersonService {
         personRepository.update(person);
         return Response.ok().build();
     }
+
+    @POST
+    @Path("/")
+    public Response addUser(
+            @FormParam("firstName") String firstName,
+            @FormParam("lastName") String lastName,
+            @FormParam("eMail") String eMail,
+            @FormParam("phoneNumber") String phoneNumber) {
+
+        return Response.status(200)
+                .entity("User added:" + firstName + " " + lastName)
+                .build();
+
+    }
 }
